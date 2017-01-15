@@ -163,4 +163,9 @@ public class RecipeBox implements IRecipe
         return this.output;
     }
 
+    @Override
+    public ItemStack[] getRemainingItems(InventoryCrafting inv) {
+        return new ItemStack[0];
+    }
+
 }

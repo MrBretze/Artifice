@@ -16,7 +16,6 @@ import shukaro.artifice.ArtificeBlocks;
 import shukaro.artifice.ArtificeCore;
 import shukaro.artifice.ArtificeFluids;
 import shukaro.artifice.block.ItemBlockArtifice;
-import shukaro.artifice.util.BlockCoord;
 
 import java.util.Locale;
 

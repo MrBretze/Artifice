@@ -1,17 +1,15 @@
 package shukaro.artifice;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.*;
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Logger;
 import shukaro.artifice.command.CommandCalc;
 import shukaro.artifice.compat.*;
@@ -21,7 +19,6 @@ import shukaro.artifice.gui.ArtificeCreativeTab;
 import shukaro.artifice.net.CommonProxy;
 import shukaro.artifice.recipe.ArtificeRecipes;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +29,7 @@ public class ArtificeCore
     @SidedProxy(clientSide = "shukaro.artifice.net.ClientProxy", serverSide = "shukaro.artifice.net.CommonProxy")
     public static CommonProxy proxy;
 
-    public static final String modID = "Artifice";
+    public static final String modID = "artifice";
     public static final String modName = "Artifice";
     public static final String modChannel = "Artifice";
     public static final String modVersion = "1.7.10R1.1.4";
@@ -44,7 +41,7 @@ public class ArtificeCore
     public static final ArtificeCreativeTab mainTab = new ArtificeCreativeTab("Artifice");
     public static final ArtificeCreativeTab worldTab = new ArtificeCreativeTab("Artifice Worldgen");
 
-    @Instance(modID)
+    @Mod.Instance(modID)
     public static ArtificeCore instance;
 
     @EventHandler
@@ -70,7 +67,7 @@ public class ArtificeCore
         logger = evt.getModLog();
 
         MinecraftForge.EVENT_BUS.register(eventHandler = new ArtificeEventHandler());
-        FMLCommonHandler.instance().bus().register(tickHandler = new ArtificeTickHandler());
+        MinecraftForge.EVENT_BUS.register(tickHandler = new ArtificeTickHandler());
 
         ArtificeConfig.initClient(evt);
         ArtificeConfig.initCommon(evt);
@@ -111,10 +108,11 @@ public class ArtificeCore
 
         if (ArtificeConfig.floraBoneMeal)
         {
-            for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
+            for (ResourceLocation biomeLoc : Biome.REGISTRY.getKeys())
             {
+                Biome biome = Biome.REGISTRY.getObject(biomeLoc);
                 if (biome != null) for (int i = 0; i < 4; i++)
-                    biome.addFlower(ArtificeBlocks.blockFlora, i, 10);
+                    biome.addFlower(ArtificeBlocks.blockFlora.getStateFromMeta(i), 10);
             }
         }
     }
@@ -131,12 +129,13 @@ public class ArtificeCore
         List<FMLMissingMappingsEvent.MissingMapping> missing = event.get();
         for (FMLMissingMappingsEvent.MissingMapping m : missing)
         {
-            if (m.name.contains("dobule"))
-            {
+            if (m.name.contains("dobule")) {
                 if (m.type == GameRegistry.Type.BLOCK)
-                    m.remap((Block)Block.blockRegistry.getObject(m.name.replace("dobule", "double")));
-                else if (m.type == GameRegistry.Type.ITEM)
-                    m.remap((Item)Item.itemRegistry.getObject(m.name.replace("dobule", "double")));
+                    m.remap(Block.getBlockFromName(m.name.replace("dobule", "double")));
+                else if (m.type == GameRegistry.Type.ITEM) {
+                    //TODO implement this
+                    //m.remap((Item)Item.itemRegistry.getObject(m.name.replace("dobule", "double")));
+                }
             }
         }
     }

@@ -8,11 +8,10 @@ import java.util.Locale;
 
 public class EnchantmentResistance extends Enchantment
 {
-    public EnchantmentResistance(int eid, int weight)
+    public EnchantmentResistance()
     {
-        super(eid, weight, EnumEnchantmentType.armor);
+        super(Rarity.RARE, EnumEnchantmentType.ARMOR, null);
         this.setName(ArtificeCore.modID.toLowerCase(Locale.ENGLISH) + ".resistance");
-        Enchantment.addToBookList(this);
     }
 
     @Override

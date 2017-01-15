@@ -17,7 +17,6 @@ import shukaro.artifice.ArtificeCore;
 import shukaro.artifice.ArtificeRegistry;
 import shukaro.artifice.ArtificeTooltips;
 import shukaro.artifice.render.TextureHandler;
-import shukaro.artifice.util.BlockCoord;
 import shukaro.artifice.util.NameMetaPair;
 
 import java.util.List;

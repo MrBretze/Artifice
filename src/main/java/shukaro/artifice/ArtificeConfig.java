@@ -1,11 +1,11 @@
 package shukaro.artifice;
 
-import cofh.lib.util.helpers.MathHelper;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ArtificeConfig
 {
@@ -123,12 +123,10 @@ public class ArtificeConfig
     public static boolean logicRecipes;
 
     public static int enchantmentStartID;
-    public static int enchantmentInvisibleWeight;
     public static boolean enchantmentInvisibleEnable;
     public static int enchantmentSoulstealingWeight;
     public static int enchantmentSoulstealingBonus;
     public static boolean enchantmentSoulstealingEnable;
-    public static int enchantmentResistanceWeight;
     public static boolean enchantmentResistanceEnable;
 
     public static boolean nuclearBatteryRecipe;
@@ -268,42 +266,42 @@ public class ArtificeConfig
             frameRecipes = c.get("Recipes", "Frame Recipes", true).getBoolean();
             detectorRecipe = c.get("Recipes", "Detector Recipe", true).getBoolean();
             steelSmelting = c.get("Recipes", "Steel Smelting", true).getBoolean();
-            c.get("Recipes", "Steel Smelting", true).comment = "Allow the smelting of steel directly from iron";
+            c.get("Recipes", "Steel Smelting", true).setComment("Allow the smelting of steel directly from iron");
             alternateSteel = c.get("Recipes", "Alternate Steel Recipe", false).getBoolean();
-            c.get("Recipes", "Alternate Steel Recipe", false).comment = "Enable an alternate steel recipe which crafts steel dust from an iron ingot and coal/charcoal";
+            c.get("Recipes", "Alternate Steel Recipe", false).setComment("Enable an alternate steel recipe which crafts steel dust from an iron ingot and coal/charcoal");
             alternateSteelRequirement = c.get("Recipes", "Alternate Steel Recipe Fuel Requirement", 2).getInt();
-            c.get("Recipes", "Alternate Steel Recipe Fuel Requirement", 2).comment = "Amount of extra coal or charcoal the alternate recipe takes. Minimum of 1, maximum of 8";
+            c.get("Recipes", "Alternate Steel Recipe Fuel Requirement", 2).setComment("Amount of extra coal or charcoal the alternate recipe takes. Minimum of 1, maximum of 8");
             blastWallRecipes = c.get("Recipes", "Blast Wall Recipes", true).getBoolean();
             glassWallRecipes = c.get("Recipes", "Glass Wall Recipes", true).getBoolean();
             scaffoldRecipes = c.get("Recipes", "Scaffolding Recipes", true).getBoolean();
             boxRecipes = c.get("Recipes", "Box Recipes", true).getBoolean();
             stoneCycleRecipes = c.get("Recipes", "Stone Cycling Recipes", true).getBoolean();
-            c.get("Recipes", "Stone Cycling Recipes", true).comment = "Allow cycling through types of stone as defined in the Basalt/Marble/Limestone lists";
+            c.get("Recipes", "Stone Cycling Recipes", true).setComment("Allow cycling through types of stone as defined in the Basalt/Marble/Limestone lists");
             sickleRecipes = c.get("Recipes", "Sickle Recipes", true).getBoolean();
             coinMinting = c.get("Recipes", "Coin Minting", true).getBoolean();
-            c.get("Recipes", "Coin Minting", true).comment = "Allow coins to be minted from nuggets";
+            c.get("Recipes", "Coin Minting", true).setComment("Allow coins to be minted from nuggets");
             coinChanging = c.get("Recipes", "Coin Changing", true).getBoolean();
-            c.get("Recipes", "Coin Changing", true).comment = "Allow coins to be traded up or down for other coins";
+            c.get("Recipes", "Coin Changing", true).setComment("Allow coins to be traded up or down for other coins");
             coinSmelting = c.get("Recipes", "Coin Smelting", true).getBoolean();
-            c.get("Recipes", "Coin Smelting", true).comment = "Allow coins to be smelted back into nuggets";
+            c.get("Recipes", "Coin Smelting", true).setComment("Allow coins to be smelted back into nuggets");
             upgradeRecipes = c.get("Recipes", "Upgrade Recipes", true).getBoolean();
             convenienceRecipes = c.get("Recipes", "Convenience Recipes", true).getBoolean();
-            c.get("Recipes", "Convenience Recipes", true).comment = "Smelt stone bricks to cracked variant, craft mossy brick/cobble variants with water bucket, craft 2 chiseled brick from 2 normal.";
+            c.get("Recipes", "Convenience Recipes", true).setComment("Smelt stone bricks to cracked variant, craft mossy brick/cobble variants with water bucket, craft 2 chiseled brick from 2 normal.");
             lampRecipes = c.get("Recipes", "Lamp Recipes", true).getBoolean();
             craftKitRecipe = c.get("Recipes", "Crafting Kit Recipe", true).getBoolean();
             c.addCustomCategoryComment("Recipes", "Controls whether or not recipes are available for use");
 
             dimensionBlacklist = c.get("Compatibility", "Dimension Blacklist", "").getString();
-            c.get("Compatibility", "Dimension Blacklist", "").comment = "A comma-separated list of dimension IDs to disable worldgen in. (No spaces)";
+            c.get("Compatibility", "Dimension Blacklist", "").setComment("A comma-separated list of dimension IDs to disable worldgen in. (No spaces)");
             floraBoneMeal = c.get("Compatibility", "Bonemeal Flowers", true).getBoolean();
-            c.get("Compatibility", "Bonemeal Flowers", true).comment = "Allow flower growth from bonemeal";
+            c.get("Compatibility", "Bonemeal Flowers", true).setComment("Allow flower growth from bonemeal");
             marbleList = c.get("Compatibility", "Marble List", "").getString();
-            c.get("Compatibility", "Marble List", "").comment = "Comma-seperated list of Name:Meta pairs to add to a cycling chain of 1:1 marble exchange recipes. No spaces or quotes, meta is required.";
+            c.get("Compatibility", "Marble List", "").setComment("Comma-seperated list of Name:Meta pairs to add to a cycling chain of 1:1 marble exchange recipes. No spaces or quotes, meta is required.");
             basaltList = c.get("Compatibility", "Basalt List", "").getString();
-            c.get("Compatibility", "Basalt List", "").comment = "Comma-seperated list of Name:Meta pairs to add to a cycling chain of 1:1 basalt exchange recipes. No spaces or quotes, meta is required.";
+            c.get("Compatibility", "Basalt List", "").setComment("Comma-seperated list of Name:Meta pairs to add to a cycling chain of 1:1 basalt exchange recipes. No spaces or quotes, meta is required.");
 
             limitUpgrades = c.get("Upgrades", "Limit Upgrades", true).getBoolean();
-            c.get("Upgrades", "Limit Upgrades", true).comment = "If true, caps the maximum enchant level that can be applied through upgrades to the configured levels, if not set they will cap at the natural level cap";
+            c.get("Upgrades", "Limit Upgrades", true).setComment("If true, caps the maximum enchant level that can be applied through upgrades to the configured levels, if not set they will cap at the natural level cap");
             maxSharpness = c.get("Upgrades", "Max Sharpness Level", 3).getInt();
             maxEfficiency = c.get("Upgrades", "Max Efficiency Level", 3).getInt();
             maxUnbreaking = c.get("Upgrades", "Max Unbreaking Level", 2).getInt();
@@ -321,14 +319,12 @@ public class ArtificeConfig
             c.addCustomCategoryComment("Upgrades", "Maximum level of enchantment allowed for each enchantment via upgrades");
 
             Property eid = c.get("Enchantments", "Starting ID for EID range", 70);
-            eid.set(MathHelper.clampI(eid.getInt(), 0, 255));
+            eid.set(MathHelper.clamp_int(eid.getInt(), 0, 255));
             enchantmentStartID = eid.getInt();
-            enchantmentInvisibleWeight = c.get("Enchantments", "Invisible Enchant Weight", 4).getInt();
             enchantmentInvisibleEnable = c.get("Enchantments", "Enable invisible enchant", true).getBoolean();
             enchantmentSoulstealingWeight = c.get("Enchantments", "Soul Stealing Enchant Weight", 2).getInt();
             enchantmentSoulstealingBonus = c.get("Enchantments", "Bonus XP per level of Soul Stealing", 5).getInt();
             enchantmentSoulstealingEnable = c.get("Enchantments", "Enable soul stealing enchant", true).getBoolean();
-            enchantmentResistanceWeight = c.get("Enchantments", "Resistance Enchant weight", 1).getInt();
             enchantmentResistanceEnable = c.get("Enchantments", "Enable resistance enchant", true).getBoolean();
             c.addCustomCategoryComment("Enchantments", "Higher weight values equate to higher occurrence");
 
@@ -370,9 +366,9 @@ public class ArtificeConfig
         {
             c.load();
             tooltips = c.get("Client", "Enable Tooltips", true).getBoolean();
-            c.get("Client", "Enable Tooltips", true).comment = "Set to false to turn off tooltips";
+            c.get("Client", "Enable Tooltips", true).setComment("Set to false to turn off tooltips");
             flavorText = c.get("Client", "Tooltip Flavor Text", true).getBoolean();
-            c.get("Client", "Tooltip Flavor Text", true).comment = "Set to false to turn off flavor text in tooltips";
+            c.get("Client", "Tooltip Flavor Text", true).setComment("Set to false to turn off flavor text in tooltips");
         }
         catch (Exception e)
         {
@@ -422,9 +418,9 @@ public class ArtificeConfig
                 String itemName = pair.split(";")[0];
                 Integer meta = Integer.parseInt(pair.split(";")[1]);
                 if (isMarble)
-                    ArtificeRegistry.registerMarbleType(new ItemStack((Block) Block.blockRegistry.getObject(itemName), 1, meta));
+                    ArtificeRegistry.registerMarbleType(new ItemStack(Block.getBlockFromName(itemName), 1, meta));
                 else
-                    ArtificeRegistry.registerBasaltType(new ItemStack((Block) Block.blockRegistry.getObject(itemName), 1, meta));
+                    ArtificeRegistry.registerBasaltType(new ItemStack(Block.getBlockFromName(itemName), 1, meta));
             }
             catch (Exception e)
             {

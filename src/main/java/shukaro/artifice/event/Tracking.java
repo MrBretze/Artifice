@@ -1,6 +1,5 @@
 package shukaro.artifice.event;
 
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
 import shukaro.artifice.ArtificeBlocks;
@@ -27,7 +26,7 @@ public class Tracking
                 if (o instanceof TileEntityAttuned)
                 {
                     TileEntityAttuned tea = (TileEntityAttuned)o;
-                    if (tea.frequency.equals(frequency) && tea.getWorldObj().getBlock(tea.xCoord, tea.yCoord, tea.zCoord) == ArtificeBlocks.blockAttunedRedstoneReceiver)
+                    if (tea.frequency.equals(frequency) && tea.getWorld().getBlockState(tea.getPos()) == ArtificeBlocks.blockAttunedRedstoneReceiver)
                         i = Math.max(tea.power, i);
                 }
             }

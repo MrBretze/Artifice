@@ -1,8 +1,8 @@
 package shukaro.artifice.net;
 
-import cpw.mods.fml.common.network.FMLIndexedMessageToMessageCodec;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
+import net.minecraftforge.fml.common.network.FMLIndexedMessageToMessageCodec;
 import shukaro.artifice.net.packets.ArtificePacket;
 import shukaro.artifice.net.packets.ArtificePacketSneak;
 

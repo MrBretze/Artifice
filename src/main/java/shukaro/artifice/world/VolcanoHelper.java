@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import shukaro.artifice.ArtificeBlocks;
-import shukaro.artifice.util.BlockCoord;
 
 import java.util.ArrayList;
 import java.util.List;

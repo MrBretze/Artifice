@@ -1,11 +1,10 @@
 package shukaro.artifice.event;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
-import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.input.Keyboard;
 import shukaro.artifice.net.PacketDispatcher;
 
@@ -13,7 +12,7 @@ public class ArtificeClientTickHandler
 {
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
-    public void keyTicker(ClientTickEvent cte)
+    public void keyTicker(TickEvent.ClientTickEvent cte)
     {
         if (cte.phase != TickEvent.Phase.START) return;
         final Minecraft mc = Minecraft.getMinecraft();

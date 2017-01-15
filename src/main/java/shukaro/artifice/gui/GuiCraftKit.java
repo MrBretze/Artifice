@@ -4,6 +4,7 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
@@ -11,9 +12,9 @@ public class GuiCraftKit extends GuiContainer
 {
     private static final ResourceLocation craftingTableGuiTextures = new ResourceLocation("textures/gui/container/crafting_table.png");
 
-    public GuiCraftKit(InventoryPlayer inventoryPlayer, World world, int x, int y, int z)
+    public GuiCraftKit(InventoryPlayer inventoryPlayer, World world, BlockPos pos)
     {
-        super(new ContainerCraftkit(inventoryPlayer, world, x, y, z));
+        super(new ContainerCraftkit(inventoryPlayer, world, pos));
     }
 
     @Override

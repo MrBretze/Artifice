@@ -1,10 +1,9 @@
 package shukaro.artifice.net;
 
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import shukaro.artifice.ArtificeConfig;
-import shukaro.artifice.event.ArtificeClientEventHandler;
 import shukaro.artifice.event.ArtificeClientTickHandler;
 import shukaro.artifice.render.FrameRenderer;
 import shukaro.artifice.render.LotusRenderer;

@@ -2,7 +2,6 @@ package shukaro.artifice.compat;
 
 import net.minecraft.item.ItemStack;
 import shukaro.artifice.ArtificeBlocks;
-import shukaro.artifice.ArtificeConfig;
 import shukaro.artifice.ArtificeCore;
 
 import java.util.List;

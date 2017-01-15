@@ -19,7 +19,7 @@ public class ArtificeEnchants
             {
                 try
                 {
-                    enchantmentInvisible = new EnchantmentInvisible(id, ArtificeConfig.enchantmentInvisibleWeight);
+                    enchantmentInvisible = new EnchantmentInvisible();
                     ArtificeCore.logger.info("Registered invisible enchant to ID " + id);
                     break;
                 }
@@ -57,7 +57,7 @@ public class ArtificeEnchants
             {
                 try
                 {
-                    enchantmentResistance = new EnchantmentResistance(id, ArtificeConfig.enchantmentResistanceWeight);
+                    enchantmentResistance = new EnchantmentResistance();
                     ArtificeCore.logger.info("Registered resistance enchant to ID " + id);
                     break;
                 }

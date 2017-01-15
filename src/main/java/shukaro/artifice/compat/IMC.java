@@ -4,18 +4,17 @@ import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.common.collect.Iterables;
 import com.google.common.primitives.Ints;
-import cpw.mods.fml.common.event.FMLInterModComms.IMCEvent;
-import cpw.mods.fml.common.event.FMLInterModComms.IMCMessage;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import shukaro.artifice.ArtificeCore;
 import shukaro.artifice.ArtificeRegistry;
 
 public class IMC
 {
-    public static void processIMC(IMCEvent event)
+    public static void processIMC(FMLInterModComms.IMCEvent event)
     {
-        for (IMCMessage m : event.getMessages())
+        for (FMLInterModComms.IMCMessage m : event.getMessages())
         {
             if (m.key.equals("register-marble"))
                 processMarbleIMC(event, m);
@@ -32,7 +31,7 @@ public class IMC
         }
     }
 
-    private static void processMarbleIMC(IMCEvent event, IMCMessage m)
+    private static void processMarbleIMC(FMLInterModComms.IMCEvent event, FMLInterModComms.IMCMessage m)
     {
         try
         {
@@ -46,7 +45,7 @@ public class IMC
                 {
                     String name = array[0];
                     Integer meta = Ints.tryParse(array[1]);
-                    Block block = (Block) Block.blockRegistry.getObject(name);
+                    Block block = Block.getBlockFromName(name);
                     if (Strings.isNullOrEmpty(name) || meta == null || block == null)
                         ArtificeCore.logger.info(String.format("Received an invalid marble registration request %s from mod %s", m.getStringValue(), m.getSender()));
                     else
@@ -66,7 +65,7 @@ public class IMC
         catch (Exception ex) {}
     }
 
-    private static void processBasaltIMC(IMCEvent event, IMCMessage m)
+    private static void processBasaltIMC(FMLInterModComms.IMCEvent event, FMLInterModComms.IMCMessage m)
     {
         try
         {
@@ -80,7 +79,7 @@ public class IMC
                 {
                     String name = array[0];
                     Integer meta = Ints.tryParse(array[1]);
-                    Block block = (Block) Block.blockRegistry.getObject(name);
+                    Block block = Block.getBlockFromName(name);
                     if (Strings.isNullOrEmpty(name) || meta == null || block == null)
                         ArtificeCore.logger.info(String.format("Received an invalid basalt registration request %s from mod %s", m.getStringValue(), m.getSender()));
                     else
@@ -100,7 +99,7 @@ public class IMC
         catch (Exception ex) {}
     }
 
-    private static void processDimBlacklistIMC(IMCEvent event, IMCMessage m)
+    private static void processDimBlacklistIMC(FMLInterModComms.IMCEvent event, FMLInterModComms.IMCMessage m)
     {
         try
         {
@@ -116,7 +115,7 @@ public class IMC
         catch (Exception ex) {}
     }
 
-    private static void processStoneIMC(IMCEvent event, IMCMessage m)
+    private static void processStoneIMC(FMLInterModComms.IMCEvent event, FMLInterModComms.IMCMessage m)
     {
         try
         {
@@ -134,7 +133,7 @@ public class IMC
                         ArtificeCore.logger.info(String.format("Received an invalid stone registration request %s from mod %s", m.getStringValue(), m.getSender()));
                     else
                     {
-                        Block block = (Block) Block.blockRegistry.getObject(name);
+                        Block block = Block.getBlockFromName(name);
                         ArtificeRegistry.registerStoneType(block, meta);
                     }
                 }
@@ -151,7 +150,7 @@ public class IMC
         catch (Exception ex) {}
     }
 
-    private static void processWorldTypeIMC(IMCEvent event, IMCMessage m)
+    private static void processWorldTypeIMC(FMLInterModComms.IMCEvent event, FMLInterModComms.IMCMessage m)
     {
         try
         {

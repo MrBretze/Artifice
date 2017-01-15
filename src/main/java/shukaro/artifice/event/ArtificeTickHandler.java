@@ -1,11 +1,11 @@
 package shukaro.artifice.event;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
-import cpw.mods.fml.relauncher.Side;
 import gnu.trove.map.TMap;
 import gnu.trove.map.hash.THashMap;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.relauncher.Side;
 import shukaro.artifice.util.ChunkCoord;
 import shukaro.artifice.world.IDelayedGen;
 import shukaro.artifice.world.ISuspendableGen;
@@ -40,7 +40,7 @@ public class ArtificeTickHandler
             return;
 
         World world = event.world;
-        int dim = world.provider.dimensionId;
+        int dim = world.provider.getDimension();
         ArrayDeque<ISuspendableGen> suspendedGens = suspendedGenerators.get(Integer.valueOf(dim));
 
         if (world.getTotalWorldTime() % 5 == 0 && suspendedGens != null && suspendedGens.size() > 0)

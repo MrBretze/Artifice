@@ -8,11 +8,10 @@ import java.util.Locale;
 
 public class EnchantmentSoulstealing extends Enchantment
 {
-    public EnchantmentSoulstealing(int eid, int weight)
+    public EnchantmentSoulstealing()
     {
-        super(eid, weight, EnumEnchantmentType.weapon);
+        super(Rarity.RARE, EnumEnchantmentType.WEAPON, null);
         this.setName(ArtificeCore.modID.toLowerCase(Locale.ENGLISH) + ".soulstealing");
-        Enchantment.addToBookList(this);
     }
 
     @Override

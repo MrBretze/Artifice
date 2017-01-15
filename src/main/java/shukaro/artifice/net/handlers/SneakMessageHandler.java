@@ -1,11 +1,11 @@
 package shukaro.artifice.net.handlers;
 
-import cpw.mods.fml.common.network.NetworkRegistry;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import shukaro.artifice.event.Tracking;
 import shukaro.artifice.net.packets.ArtificePacketSneak;
 

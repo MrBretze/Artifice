@@ -12,7 +12,6 @@ import shukaro.artifice.ArtificeCore;
 import shukaro.artifice.ArtificeRegistry;
 import shukaro.artifice.block.world.BlockOre;
 import shukaro.artifice.event.ArtificeTickHandler;
-import shukaro.artifice.util.BlockCoord;
 import shukaro.artifice.util.ChunkCoord;
 import shukaro.artifice.util.NameMetaPair;
 

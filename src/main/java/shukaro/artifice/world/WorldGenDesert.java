@@ -10,7 +10,6 @@ import net.minecraft.world.World;
 import shukaro.artifice.ArtificeCore;
 import shukaro.artifice.ArtificeRegistry;
 import shukaro.artifice.event.ArtificeTickHandler;
-import shukaro.artifice.util.BlockCoord;
 import shukaro.artifice.util.ChunkCoord;
 import shukaro.artifice.util.NameMetaPair;
 
