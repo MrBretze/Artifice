@@ -1,5 +1,7 @@
 # Artifice
 
+# Moved to [OldPower](https://github.com/MrBretze/OldPower)
+
 Artifice adds a variety of things. Really whatever seems interesting to me.
 
 ### Contributing
